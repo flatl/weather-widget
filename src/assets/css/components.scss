@@ -1,0 +1,280 @@
+/* SettingButton */
+.settings-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+
+  &.enter-animation,
+  &.disabled {
+    svg {
+      transform: rotateZ(45deg);
+
+      path,
+      circle {
+        stroke: var(--c-violet-blue);
+      }
+    }
+  }
+
+  &.leave-animation {
+    svg {
+      transform: rotateZ(0);
+
+      path,
+      circle {
+        stroke: var(--c-black);
+        animation: stroke-anim .15s 1;
+      }
+    }
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: transform .15s linear;
+    outline: none;
+
+    path,
+    circle {
+      stroke: var(--c-black);
+    }
+  }
+}
+
+@keyframes stroke-anim {
+  0% {
+    stroke: var(--c-violet-blue);
+  }
+
+  90% {
+    stroke: var(--c-violet-blue);
+  }
+
+  100% {
+    stroke: var(--c-black);
+  }
+}
+
+/* WeatherTab */
+.weather-tab {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 2rem;
+}
+
+/* WeatherItem */
+.weather {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+  width: 13rem;
+  max-width: 100%;
+
+  .container-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    grid-gap: 1rem;
+  }
+
+  &__main-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  &__location-name {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 22px;
+    color: var(--c-black);
+  }
+
+  &__conditions-thumb {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &__temp {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 3rem;
+  }
+
+  &__description,
+  &__wind,
+  &__humidity,
+  &__pressure,
+  &__dew-point,
+  &__visibility {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1rem;
+    color: var(--c-black);
+    display: flex;
+
+    &__icon {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}
+
+/* SettingsTab */
+.settings-tab {
+  display: flex;
+  flex-direction: column;
+  width: 13rem;
+  max-width: 100%;
+  grid-gap: 1rem;
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 22px;
+    margin: 0 0 0.5rem 0;
+  }
+
+  &__locations {
+    margin: 0 0 1rem 0;
+  }
+}
+
+/* LocationItems */
+.location-items {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    grid-gap: 1rem;
+    padding: 0;
+
+    &__item {
+      background-color: var(--c-cream-white);
+    }
+  }
+}
+
+/* LocationItem */
+.location-item {
+  display: grid;
+  grid-template-columns: 1rem calc(100% - 3rem) 1rem;
+  align-items: center;
+  width: 100%;
+  grid-gap: .5rem;
+  padding: .5rem;
+
+  &__name {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    color: var(--c-dark-grey);
+  }
+
+  &__move-btn,
+  &__delete-btn {
+    svg {
+      width: 1rem;
+
+      rect,
+      path {
+        fill: var(--c-dark-grey);
+      }
+    }
+  }
+}
+
+/* LocationSearch */
+.location-search {
+  max-width: 100%;
+
+  &__input-label {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 22px;
+    margin: 0 0 0.25rem 0;
+  }
+}
+
+/* CustomSelect */
+.custom-select {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+
+  &__input.priority {
+    border: 1px solid var(--c-grey);
+
+    &.opened {
+      border-color: var(--c-violet-blue);
+      border-bottom: none;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &__loader {
+    width: 6rem;
+    height: 6rem
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 6px;
+    border-radius: 6px;
+    // padding: .25rem;
+    border: 1px solid var(--c-violet-blue);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
+
+    &.loading {
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    &__option {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      padding: .5rem;
+      cursor: pointer;
+
+      &:first-of-type {
+        margin-top: .5rem;
+      }
+
+      &:last-of-type {
+        margin-bottom: .5rem;
+      }
+
+      &:hover {
+        color: var(--c-white);
+        background-color: var(--c-violet-blue);
+      }
+    }
+  }
+}
+
+/* LoaderAnimation */
+.loader {
+  width: px-to-rem(100px);
+  height: px-to-rem(100px);
+}
+
+
