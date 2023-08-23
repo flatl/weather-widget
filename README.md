@@ -34,6 +34,8 @@ Contains some helpful functions which relates to common js problems
 Considered to contain common project types
 
 ## Installation and usage
+Add your `.env` file in project root with `VITE_OPEN_WEATHER_TOKEN="{your token}"` field
+
 ```bash
 yarn # install depencies
 yarn dev # start dev server
